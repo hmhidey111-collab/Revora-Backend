@@ -16,7 +16,7 @@ Node.js + TypeScript (CommonJS via ts-node / `tsc`) + Express 4, PostgreSQL via 
 | Persistence | `src/db/` (pool, replica-lag monitor, transactions, repositories, numbered SQL migrations in `src/db/migrations/`, runner `src/db/migrate.js`) |
 | Middleware | `src/middleware/` (auth, CORS, rate limiting tiers, request id, metrics, error handler) |
 | Config | `src/config/env.ts` (zod-validated env, documented in its header), `src/config/workerRole.ts` |
-| Soroban/Stellar helpers | `src/vesting.rs`, `src/lib.rs`, `Cargo.toml` at repo root are legacy Rust files, not part of the Node build |
+| Stray Rust files | `src/lib.rs`, `src/vesting.rs`, `Cargo.toml` (crate `revora-contracts`) sit in this repo but are not part of the Node build; the contracts live in Revora-Contracts |
 | OpenAPI | `src/docs/openapi.yaml` |
 
 **Worker roles.** The `ROLE` env var (`api`, `batch`, `all`) splits HTTP serving from background jobs (see [docs/worker-role-separation.md](docs/worker-role-separation.md)). `ROLE` must be set outside the test environment, otherwise startup exits.
